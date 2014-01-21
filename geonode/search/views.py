@@ -76,8 +76,7 @@ def search_page(request, template='search/search.html', **kw):
     for val in facets.values(): total+=val
     total -= facets['raster'] + facets['vector']
     return render_to_response(template, RequestContext(request, {'object_list': results, 'total': total, 
-        'facets': facets, 'query': json.dumps(query.get_query_response()), 'tags': tags,
-        'initial_query': initial_query}))
+        'facets': facets, 'query': json.dumps(query.get_query_response()), 'tags': tags}))
 
 def advanced_search(request, **kw):
     ctx = {
