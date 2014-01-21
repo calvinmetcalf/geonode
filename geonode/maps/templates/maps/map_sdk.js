@@ -7,7 +7,6 @@
 </style>
 <script type="text/javascript" src="{{ STATIC_URL}}geonode/js/extjs/GeoNode-GeoExplorer.js"></script>
 <script type="text/javascript">
-var app;
 Ext.onReady(function() {
 {% autoescape off %}
     var config = Ext.apply({
@@ -38,7 +37,7 @@ Ext.onReady(function() {
     }, {{ config }});
 
 
-    app = new MyApp.Viewer(config);
+    geonode.app = new MyApp.Viewer(config);
 {% endautoescape %}
 });
 </script>

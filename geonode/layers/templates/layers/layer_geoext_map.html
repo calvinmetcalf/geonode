@@ -4,7 +4,6 @@
 
 <script type="text/javascript">
 {% autoescape off %}
-        var app;
         Ext.onReady(function() {
             GeoExt.Lang.set("{{ LANGUAGE_CODE }}");
             var config = {
@@ -36,7 +35,7 @@
 
                 listeners: {
                     "ready": function() {
-                        map = app.mapPanel.map;
+                        map = geonode.app.mapPanel.map;
                         map.zoomToExtent(map.layers.slice(-1)[0].maxExtent);
                     },
                     "beforeunload": function() {
@@ -49,10 +48,10 @@
             };
 
             config = Ext.apply(config, {{ viewer|safe }});
-            app = new GeoExplorer.Viewer(config);
+            geonode.app = new GeoExplorer.Viewer(config);
 
-            for (var key in app.tools) {
-                var tool = app.tools[key];
+            for (var key in geonode.app.tools) {
+                var tool = geonode.app.tools[key];
                 if (tool.ptype == 'gxp_styler') {
                     tool.rasterStyling = true;
                 };
@@ -60,15 +59,15 @@
 
             // change style displayed in map
             Ext.get(Ext.DomQuery.select("input[@name='style']")).on("click", function(evt, elem) {
-                app.selectedLayer.getLayer().mergeNewParams({
+                geonode.app.selectedLayer.getLayer().mergeNewParams({
                     "STYLES": elem.id,
                     "_dc": Math.random()
                 }); 
             });
             
             Ext.get(Ext.DomQuery.select(".style-edit")).on("click", function(evt, elem) {
-                for (var key in app.tools) {
-                    var tool = app.tools[key];
+                for (var key in geonode.app.tools) {
+                    var tool = geonode.app.tools[key];
                     if (tool.ptype == 'gxp_styler') {
                         tool.actions[0].execute();
                     };

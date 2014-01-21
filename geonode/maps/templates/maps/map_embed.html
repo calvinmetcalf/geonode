@@ -9,7 +9,6 @@
     </script>
 
     <script type="text/javascript">
-    var app;
     Ext.onReady(function() {
     {% autoescape off %}
         var config = {
@@ -29,7 +28,7 @@
         };
 
         Ext.apply(config, {{ config }});
-        app = new GeoExplorer.Viewer(config);
+        geonode.app = new GeoExplorer.Viewer(config);
 
     {% endautoescape %}
     });

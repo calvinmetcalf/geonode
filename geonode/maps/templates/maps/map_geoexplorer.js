@@ -21,7 +21,6 @@ button.login {
 <script type="text/javascript" src="{{ STATIC_URL}}geonode/js/extjs/GeoNode-mixin.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL}}geonode/js/extjs/GeoNode-GeoExplorer.js"></script>
 <script type="text/javascript">
-var app;
 Ext.onReady(function() {
 {% autoescape off %}
     GeoExt.Lang.set("{{ LANGUAGE_CODE }}");
@@ -54,7 +53,7 @@ Ext.onReady(function() {
     }, {{ config }});
 
 
-    app = new GeoNode.Composer(config);
+    geonode.app = new GeoNode.Composer(config);
 {% endautoescape %}
 });
 </script>

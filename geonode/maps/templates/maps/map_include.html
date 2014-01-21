@@ -2,7 +2,6 @@
 {% include "geonode/app_header.html" %}
 {% include "geonode/geo_header.html" %}
 <script type="text/javascript">
-var app;
 Ext.onReady(function() {
 {% autoescape off %}
     GeoExt.Lang.set("{{ LANGUAGE_CODE }}");
@@ -28,7 +27,7 @@ Ext.onReady(function() {
             renderTo: "the_map"
         }
     }, {{ config }});
-app = new GeoExplorer.Viewer(config);
+geonode.app = new GeoExplorer.Viewer(config);
 {% endautoescape %}
 });
 </script>
