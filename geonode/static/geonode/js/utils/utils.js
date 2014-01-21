@@ -9,12 +9,9 @@ $(function() {
         var selector = ".main-nav li#nav_" + item;
         $(selector).addClass("current");
     });
-    
-});
 
 //define(['jquery'], function($) {
 
-$(function(){
   $(document).ajaxSend(function(event, xhr, settings) {
     function getCookie(name) {
         var cookieValue = null;
@@ -70,3 +67,7 @@ $.fn.serializeObject = function() {
     });
     return o;
 };
+
+if (typeof window.geonode === 'undefined') {
+    window.geonode = {};
+}
