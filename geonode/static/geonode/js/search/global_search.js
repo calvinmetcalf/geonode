@@ -47,8 +47,8 @@ $(function(){
 			'extent': extentval
         };
         
-        if (typeof geonode.default_type !== 'undefined' && data.type === ''){
-            data.type = geonode.default_type;
+        if (typeof geonode.defaultType !== 'undefined' && data.type === ''){
+            data.type = geonode.defaultType;
         }
         
         return data;
